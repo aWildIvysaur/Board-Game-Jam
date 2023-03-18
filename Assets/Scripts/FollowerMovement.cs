@@ -18,7 +18,7 @@ public class FollowerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Physics.Linecast(self.position, target.position))
+        if (!Physics.Linecast(self.position, target.position, (1 << 0)))
         {
             targetPos = target.position;
             targetPos.y = self.position.y;
