@@ -11,12 +11,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    public float hInput;
-    public float vInput;
-    public float angle;
+    private float hInput;
+    [SerializeField] private float vInput;
+    private float angle;
     private Vector3 direction = new Vector3(0,0,0);
 
-    public float speed;
+    [SerializeField] private float speed;
 
     // Update is called once per frame
     void Update()
@@ -45,8 +45,19 @@ public class PlayerMovement : MonoBehaviour
                     else if (vInput < 0)
                         {angle = 180;}
                 }
+                else if (vInput == 0)
+                {
+                    if (hInput < 0)
+                    {
+                        angle = 270;
+                    }
+                    else
+                    {
+                        angle = 90;
+                    }
+                }
                 
-                    {transform.eulerAngles = new Vector3(0, angle, 0);}
+                transform.eulerAngles = new Vector3(0, angle, 0);
             }
         #endregion
         
